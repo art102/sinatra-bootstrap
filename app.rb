@@ -6,15 +6,14 @@ get '/' do
   erb 'You can download this site from this <a href="https://github.com/art102/sinatra-bootstrap.git">repository</a>.'
 end
 
-def auth
-	@name = params[:username]
-	@pass = params[:password]
-
-	if @name == 'admin' && @pass == 'secret'
-	 erb :admin_page
-	else
-		@message = 'Acces denied!'
-		erb :login_form
-	end
+get '/about' do
+	erb :about
 end
 
+get '/mission' do
+	erb :mission
+end
+
+get '/contacts' do
+	erb :contacts
+end
