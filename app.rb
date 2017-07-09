@@ -6,6 +6,10 @@ get '/' do
   erb 'You can download this site from this <a href="https://github.com/art102/sinatra-bootstrap.git">repository</a>.'
 end
 
+get '/visit' do
+	erb :visit
+end
+
 get '/about' do
 	erb :about
 end
