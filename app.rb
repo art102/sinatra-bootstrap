@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'sinatra'
-
+require 'sinatra/reloader'
 
 get '/' do
   erb 'You can download this site from this <a href="https://github.com/art102/sinatra-bootstrap.git">repository</a>.'
