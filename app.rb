@@ -10,6 +10,27 @@ get '/visit' do
 	erb :visit
 end
 
+post '/visit' do
+	@username = params[:username]
+	@phone = params[:phone]
+	@date_time = params[:date_time]
+
+	if @username == '' || @phone == '' || @date_time == ''
+		@message = 'Вы что-то не ввели!'
+		erb :visit
+	else
+		file = File.open('./public/users.txt','a')
+		file.write("Name: #{@users}, Phone:#{@phone}, Date and time: #{@date_time}\n")
+		file.close
+
+		erb :visit
+
+	end
+
+
+
+end
+
 get '/about' do
 	erb :about
 end
@@ -20,4 +41,15 @@ end
 
 get '/contacts' do
 	erb :contacts
+end
+
+post '/contacts' do
+	@user_contacts = params[:user_contacts]
+
+	file = File.open('./public/contacts.txt','a')
+	file.write("Users contacts: #{@user_contacts}\n")
+	file.close
+
+	erb :contacts
+
 end
