@@ -14,13 +14,14 @@ post '/visit' do
 	@username = params[:username]
 	@phone = params[:phone]
 	@date_time = params[:date_time]
+	@master = params[:master]
 
 	if @username == '' || @phone == '' || @date_time == ''
 		@message = 'Вы что-то не ввели!'
 		erb :visit
 	else
 		file = File.open('./public/users.txt','a')
-		file.write("Name: #{@username}, Phone:#{@phone}, Date and time: #{@date_time}\n")
+		file.write("Name: #{@username}, Phone:#{@phone}, Date and time: #{@date_time}, Master: #{@master}\n")
 		file.close
 
 		erb :visit

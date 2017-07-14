@@ -1,1 +1,4 @@
-Name: Mike, Phone:8901, Date and time: 19/01 12:15
+Name: Artur, Phone:89631234568, Date and time: 14/09 22:00, Master: walter_white
+Name: Artur, Phone:89631234568, Date and time: 14/09 22:00, Master: walter_white
+Name: Ted, Phone:456789, Date and time: 19/01 15:30, Master: Gus Fring
+Name: Ted, Phone:456789, Date and time: 19/01 15:30, Master: Gus Fring
