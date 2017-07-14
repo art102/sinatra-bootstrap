@@ -20,7 +20,7 @@ post '/visit' do
 		erb :visit
 	else
 		file = File.open('./public/users.txt','a')
-		file.write("Name: #{@users}, Phone:#{@phone}, Date and time: #{@date_time}\n")
+		file.write("Name: #{@username}, Phone:#{@phone}, Date and time: #{@date_time}\n")
 		file.close
 
 		erb :visit
