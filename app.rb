@@ -28,8 +28,6 @@ post '/visit' do
 
 	end
 
-
-
 end
 
 get '/about' do
