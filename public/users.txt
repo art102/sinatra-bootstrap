@@ -4,3 +4,6 @@ Name: Ted, Phone:456789, Date and time: 19/01 15:30, Master: Gus Fring
 Name: Ted, Phone:456789, Date and time: 19/01 15:30, Master: Gus Fring
 Name: Helen, Phone:779900, Date and time: 15/09 18:45, Master: Jessie Pinkman
 Name: Yan, Phone:888, Date and time: 13:-09 9090, Master: Gus Fring
+Name: Yan, Phone:888, Date and time: 13:-09 9090, Master: Gus Fring
+Name: Barbara, Phone:3333, Date and time: 213213, Master: Jessie Pinkman, Color: #51b749
+Name: Barbara, Phone:3333, Date and time: 213213, Master: Jessie Pinkman, Color: #51b749
