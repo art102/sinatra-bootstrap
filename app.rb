@@ -17,8 +17,17 @@ post '/visit' do
 	@master = params[:master]
 	@color = params[:color]
 
-	if @username == '' || @phone == '' || @date_time == ''
-		@message = 'Вы что-то не ввели!'
+	#if @username == '' || @phone == '' || @date_time == ''
+	#	@error = 'Вы что-то не ввели!'
+	#	erb :visit
+	if @username == ''
+		@error = 'Вы не ввели имя'
+		erb :visit
+	elsif @phone == ''
+		@error = 'Вы не ввели телефон'
+		erb :visit
+	elsif @date_time == ''
+		@error = 'Вы не ввели дату'
 		erb :visit
 	else
 		file = File.open('./public/users.txt','a')
