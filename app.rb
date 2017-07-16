@@ -11,32 +11,29 @@ get '/visit' do
 end
 
 post '/visit' do
+
 	@username = params[:username]
 	@phone = params[:phone]
 	@date_time = params[:date_time]
 	@master = params[:master]
 	@color = params[:color]
 
-	#if @username == '' || @phone == '' || @date_time == ''
-	#	@error = 'Вы что-то не ввели!'
-	#	erb :visit
-	if @username == ''
-		@error = 'Вы не ввели имя'
-		erb :visit
-	elsif @phone == ''
-		@error = 'Вы не ввели телефон'
-		erb :visit
-	elsif @date_time == ''
-		@error = 'Вы не ввели дату'
-		erb :visit
-	else
-		file = File.open('./public/users.txt','a')
-		file.write("Name: #{@username}, Phone:#{@phone}, Date and time: #{@date_time}, Master: #{@master}, Color: #{@color}\n")
-		file.close
+	hh = { :username => 'Введите имя',
+				 :phone => 'Введите телефон',
+				 :date_time => 'Введите дату и время'
+			  }
 
-		erb :visit
+	hh.each do |key, value|
+		
+		if params[key] == ''
+			@error = hh[key]
 
-	end
+			return erb :visit
+		end	
+	
+	end	
+
+	erb "OK, Username is #{@username}, #{@phone}, #{@date_time}, #{@master}, #{@color}"
 
 end
 
