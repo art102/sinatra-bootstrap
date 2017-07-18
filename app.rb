@@ -52,6 +52,12 @@ end
 post '/contacts' do
 	@user_contacts = params[:user_contacts]
 
+	if @user_contacts == ''
+		@error = 'Вы ничего не ввели'
+
+		return erb :contacts
+	end
+
 	file = File.open('./public/contacts.txt','a')
 	file.write("Users contacts: #{@user_contacts}\n")
 	file.close
