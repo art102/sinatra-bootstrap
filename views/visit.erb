@@ -6,11 +6,13 @@
 	<body>
 
 		<script type="text/javascript">
-			$(function(){
+
+			$(function() {
 
 				$('#color').simplecolorpicker();
+				$('#datetimepicker').datetimepicker();
 
-			})	
+			});	
 		</script>
 
 		<h2>Записаться</h2>
@@ -31,7 +33,7 @@
 
 		   <div class="form-group">
 		    <label>Когда вас ждать?</label>
-		    <input name="date_time" type="text" class="form-control" placeholder="Введите дату и время" value="<%= @date_time %>">
+		    <input id="datetimepicker" name="date_time" type="text" class="form-control" placeholder="Введите дату и время" value="<%= @date_time %>">
 		  </div>
 
 		  <div class="form-group">
