@@ -96,7 +96,10 @@ post '/contacts' do
 end
 
 get '/showusers' do
+	db = SQLite3::Database.new 'barbershop.db'
+	db.results_as_hash = true
+
+	@results = db.execute 'select * from Users order by id desc'
 
 	erb :showusers
-
 end
