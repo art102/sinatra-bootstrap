@@ -23,6 +23,11 @@ def get_db
 	return db
 end
 
+before do
+	db = get_db
+	@barbers = db.execute 'select * from Barbers'
+end
+
 configure do
 	db = get_db
 	db.execute 'CREATE TABLE IF NOT EXISTS 
@@ -50,6 +55,10 @@ get '/' do
   erb 'You can download this site from this <a href="https://github.com/art102/sinatra-bootstrap.git">repository</a>.'
 end
 
+get '/about' do
+	erb :about
+end
+
 get '/visit' do
 	erb :visit
 end
@@ -62,34 +71,32 @@ post '/visit' do
 	@barber = params[:barber]
 	@color = params[:color]
 
+	# хеш
 	hh = { :username => 'Введите имя',
 				 :phone => 'Введите телефон',
 				 :date_time => 'Введите дату и время'
 			  }
 
-	hh.each do |key, value|
-		
-		if params[key] == ''
-			@error = hh[key]
+	@error = hh.select {|key,_| params[key] == ""}.values.join(", ")
 
-			return erb :visit
-		end	
-	
-	end	
+	if @error != ''
+		return erb :visit
+	end
 
 	db = get_db
-	db.execute 'insert into Users (username, phone, datestamp, barber, color) values (?, ?, ?, ?, ?)', [@username, @phone, @date_time, @barber, @color]
+	db.execute 'insert into 
+		Users 
+		(
+			username,
+			phone,
+			datestamp,
+			barber, 
+			color
+		) 
+		values (?, ?, ?, ?, ?)', [@username, @phone, @date_time, @barber, @color]
 
-	erb "OK, Username is #{@username}, #{@phone}, #{@date_time}, #{@barber}, #{@color}"
+	erb "<h2>Спасибо, вы записались!</h2>"
 
-end
-
-def get_db
-	return SQLite3::Database.new 'barbershop.db'
-end
-
-get '/about' do
-	erb :about
 end
 
 get '/mission' do
